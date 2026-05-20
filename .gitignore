@@ -57,6 +57,7 @@ test-*.php
 !test-db-connection.php
 
 # Documentation (optional - keep locally but don't commit)
+CHANGELOG-*.md
 DEPLOYMENT-CHECKLIST.md
 DEPLOYMENT-FILES.md
 DEPLOYMENT-GUIDE.md
