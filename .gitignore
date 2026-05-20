@@ -55,3 +55,12 @@ yarn-error.log
 # Test files (keep in repo but ignore results)
 test-*.php
 !test-db-connection.php
+
+# Documentation (optional - keep locally but don't commit)
+DEPLOYMENT-CHECKLIST.md
+DEPLOYMENT-FILES.md
+DEPLOYMENT-GUIDE.md
+NEXT-STEPS.md
+QUICK-DEPLOY.md
+SETUP-INSTRUCTIONS.md
+START-HERE.md
