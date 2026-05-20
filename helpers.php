@@ -2,6 +2,61 @@
 // Helper Functions
 
 /**
+ * Get database connection
+ * Returns a PDO instance with proper configuration
+ */
+function getDbConnection() {
+    static $pdo = null;
+    
+    if ($pdo === null) {
+        try {
+            $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET;
+            
+            // Use Unix socket if specified
+            if (!empty(DB_SOCKET)) {
+                $dsn = "mysql:unix_socket=" . DB_SOCKET . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET;
+            }
+            
+            $options = [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                PDO::ATTR_EMULATE_PREPARES => false,
+            ];
+            
+            $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
+        } catch (PDOException $e) {
+            error_log("Database connection error: " . $e->getMessage());
+            
+            if (defined('APP_DEBUG') && APP_DEBUG) {
+                die("Database connection failed: " . $e->getMessage());
+            } else {
+                die("Terjadi kesalahan koneksi database. Silakan coba lagi nanti.");
+            }
+        }
+    }
+    
+    return $pdo;
+}
+
+/**
+ * Get authenticated user
+ * Returns user data if logged in, null otherwise
+ */
+function auth() {
+    if (isset($_SESSION['user_id'])) {
+        static $user = null;
+        
+        if ($user === null) {
+            $stmt = safeQuery("SELECT * FROM users WHERE id = ?", [$_SESSION['user_id']]);
+            $user = $stmt ? $stmt->fetch() : null;
+        }
+        
+        return $user;
+    }
+    return null;
+}
+
+/**
  * Generate UUID v4
  */
 function generateUuid(): string {
