@@ -132,6 +132,7 @@ if (APP_DEBUG) {
 // PATHS
 // ============================================
 
+define('BASE_PATH', __DIR__);
 define('ROOT_PATH', __DIR__);
 define('CLASSES_PATH', ROOT_PATH . '/classes');
 define('INCLUDES_PATH', ROOT_PATH . '/includes');
