@@ -1,0 +1,54 @@
+---
+# cPanel Deployment Configuration
+# This file tells cPanel how to deploy your application
+
+deployment:
+  tasks:
+    # Copy files to public_html (adjust path as needed)
+    - export DEPLOYPATH=/home/username/public_html/
+    
+    # Create necessary directories if they don't exist
+    - mkdir -p $DEPLOYPATH/logs
+    - mkdir -p $DEPLOYPATH/cache
+    - mkdir -p $DEPLOYPATH/uploads
+    - mkdir -p $DEPLOYPATH/backups
+    
+    # Copy all files except .git
+    - /bin/cp -R * $DEPLOYPATH
+    
+    # Set proper permissions
+    - chmod 755 $DEPLOYPATH/logs
+    - chmod 755 $DEPLOYPATH/cache
+    - chmod 755 $DEPLOYPATH/uploads
+    - chmod 755 $DEPLOYPATH/backups
+    - chmod 644 $DEPLOYPATH/.htaccess
+    
+    # Copy config if it doesn't exist (first deployment)
+    - |
+      if [ ! -f $DEPLOYPATH/config.php ]; then
+        cp $DEPLOYPATH/config.example.php $DEPLOYPATH/config.php
+        echo "⚠️  config.php created from example. Please update with your settings!"
+      fi
+    
+    # Clear cache
+    - rm -f $DEPLOYPATH/cache/*.cache
+    
+    # Create .htaccess for protected directories if not exists
+    - |
+      if [ ! -f $DEPLOYPATH/logs/.htaccess ]; then
+        echo "Deny from all" > $DEPLOYPATH/logs/.htaccess
+      fi
+    - |
+      if [ ! -f $DEPLOYPATH/cache/.htaccess ]; then
+        echo "Deny from all" > $DEPLOYPATH/cache/.htaccess
+      fi
+    - |
+      if [ ! -f $DEPLOYPATH/backups/.htaccess ]; then
+        echo "Deny from all" > $DEPLOYPATH/backups/.htaccess
+      fi
+    
+    # Log deployment
+    - echo "✅ Deployment completed at $(date)" >> $DEPLOYPATH/logs/deploy.log
+    
+    # Optional: Run cleanup script
+    # - php $DEPLOYPATH/cleanup.php

@@ -1,0 +1,25 @@
+# Protect uploads directory
+# Allow only specific file types to be accessed
+
+# Deny access to PHP files
+<FilesMatch "\.php$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Allow only images and documents
+<FilesMatch "\.(jpg|jpeg|png|gif|webp|pdf|doc|docx|xls|xlsx)$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
+
+# Prevent directory listing
+Options -Indexes
+
+# Disable script execution
+<IfModule mod_php7.c>
+    php_flag engine off
+</IfModule>
+
+AddHandler cgi-script .php .php3 .php4 .php5 .phtml .pl .py .jsp .asp .htm .shtml .sh .cgi
+Options -ExecCGI

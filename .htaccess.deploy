@@ -1,0 +1,50 @@
+# ============================================
+# SECURITY FOR DEPLOY SCRIPT
+# ============================================
+# Rename this file to .htaccess or merge with existing .htaccess
+
+# Protect deploy.php - only allow GitHub/GitLab IPs
+<Files "deploy.php">
+    Order Deny,Allow
+    Deny from all
+    
+    # GitHub webhook IPs (update regularly from https://api.github.com/meta)
+    Allow from 140.82.112.0/20
+    Allow from 143.55.64.0/20
+    Allow from 185.199.108.0/22
+    Allow from 192.30.252.0/22
+    
+    # GitLab webhook IPs
+    Allow from 34.74.90.64/28
+    Allow from 34.74.226.0/24
+    
+    # Bitbucket IPs
+    Allow from 104.192.136.0/21
+    Allow from 185.166.140.0/22
+    
+    # Allow from your office/home IP for testing (optional)
+    # Allow from YOUR.IP.ADDRESS.HERE
+</Files>
+
+# Protect sensitive directories
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Protect logs directory
+    RewriteRule ^logs/ - [F,L]
+    
+    # Protect backups directory
+    RewriteRule ^backups/ - [F,L]
+    
+    # Protect .git directory
+    RewriteRule ^\.git/ - [F,L]
+</IfModule>
+
+# Prevent directory listing
+Options -Indexes
+
+# Protect sensitive files
+<FilesMatch "^(\.env|\.git.*|composer\.(json|lock)|package(-lock)?\.json|.*\.sql|.*\.log)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>

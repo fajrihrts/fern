@@ -1,0 +1,57 @@
+# Environment & Config
+config.php
+.env
+.env.local
+
+# Logs
+logs/*.log
+!logs/.htaccess
+
+# Cache
+cache/*.cache
+!cache/.htaccess
+cache/rate_limits/*
+!cache/rate_limits/.gitignore
+
+# Uploads
+uploads/*
+!uploads/.htaccess
+!uploads/README.md
+
+# Backups
+backups/*
+!backups/.gitignore
+
+# System Files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# Composer
+/vendor/
+composer.lock
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Temporary files
+*.tmp
+*.bak
+*.old
+
+# Database dumps
+*.sql.gz
+*.sql.zip
+
+# Test files (keep in repo but ignore results)
+test-*.php
+!test-db-connection.php
