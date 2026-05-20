@@ -160,3 +160,17 @@ define('MAINTENANCE_ALLOWED_IPS', [
     '127.0.0.1',
     // Add your IP here to access during maintenance
 ]);
+
+// ============================================
+// CONTACT & SOCIAL MEDIA
+// ============================================
+
+define('CONTACT_ADDRESS', 'Jl. Jenderal Sudirman No.1, Penajam, Kalimantan Timur');
+define('CONTACT_EMAIL', 'bps3474@bps.go.id');
+define('CONTACT_PHONE', '(0542) 7273737');
+define('WEBSITE_URL', 'https://penajamkab.bps.go.id');
+
+define('FACEBOOK_URL', 'https://facebook.com/bpsppu');
+define('INSTAGRAM_URL', 'https://instagram.com/bps.ppu');
+define('TWITTER_URL', 'https://twitter.com/bpsppu');
+define('YOUTUBE_URL', 'https://youtube.com/@bpsppu');
