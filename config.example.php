@@ -50,6 +50,9 @@ define('PASSWORD_COST', 12);
 // Maximum file size (in bytes)
 define('MAX_FILE_SIZE', 5 * 1024 * 1024); // 5MB
 
+// Allowed PDF type (for single PDF uploads)
+define('ALLOWED_PDF_TYPE', 'application/pdf');
+
 // Allowed image types
 define('ALLOWED_IMAGE_TYPES', [
     'image/jpeg',
