@@ -1,0 +1,130 @@
+<?php
+/**
+ * Configuration File - Production
+ * 
+ * DO NOT commit this file to repository!
+ */
+
+// ============================================
+// DATABASE CONFIGURATION
+// ============================================
+
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'fajriharits_fern');
+define('DB_USER', 'fajriharits_fern');
+define('DB_PASS', 'Ijok.142123');
+define('DB_CHARSET', 'utf8mb4');
+define('DB_SOCKET', '');
+
+// ============================================
+// APPLICATION CONFIGURATION
+// ============================================
+
+define('APP_NAME', 'Portal e-Registrasi Magang BPS PPU');
+define('APP_URL', 'https://fajriharits.my.id');
+define('APP_ENV', 'production');
+define('APP_DEBUG', false);
+
+// ============================================
+// SECURITY CONFIGURATION
+// ============================================
+
+define('SESSION_LIFETIME', 7200);
+define('SESSION_NAME', 'FERN_SESSION');
+define('CSRF_TOKEN_EXPIRY', 3600);
+define('PASSWORD_COST', 12);
+
+// ============================================
+// FILE UPLOAD CONFIGURATION
+// ============================================
+
+define('MAX_FILE_SIZE', 5 * 1024 * 1024);
+define('ALLOWED_IMAGE_TYPES', [
+    'image/jpeg',
+    'image/png',
+    'image/gif',
+    'image/webp'
+]);
+define('ALLOWED_DOCUMENT_TYPES', [
+    'application/pdf',
+    'application/msword',
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    'application/vnd.ms-excel',
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+]);
+define('UPLOAD_DIR', __DIR__ . '/uploads');
+define('UPLOAD_URL', APP_URL . '/uploads');
+
+// ============================================
+// CACHE CONFIGURATION
+// ============================================
+
+define('CACHE_ENABLED', true);
+define('CACHE_DIR', __DIR__ . '/cache');
+define('CACHE_LIFETIME', 3600);
+
+// ============================================
+// LOGGING CONFIGURATION
+// ============================================
+
+define('LOG_ENABLED', true);
+define('LOG_DIR', __DIR__ . '/logs');
+define('LOG_LEVEL', 'INFO');
+
+// ============================================
+// RATE LIMITING
+// ============================================
+
+define('RATE_LIMIT_ENABLED', true);
+define('RATE_LIMIT_MAX_ATTEMPTS', 5);
+define('RATE_LIMIT_WINDOW', 900);
+
+// ============================================
+// EMAIL CONFIGURATION (Optional)
+// ============================================
+
+define('MAIL_ENABLED', false);
+define('MAIL_FROM', 'noreply@fajriharits.my.id');
+define('MAIL_FROM_NAME', APP_NAME);
+
+// ============================================
+// TIMEZONE
+// ============================================
+
+date_default_timezone_set('Asia/Makassar');
+
+// ============================================
+// ERROR REPORTING
+// ============================================
+
+error_reporting(0);
+ini_set('display_errors', 0);
+
+// ============================================
+// PATHS
+// ============================================
+
+define('ROOT_PATH', __DIR__);
+define('CLASSES_PATH', ROOT_PATH . '/classes');
+define('INCLUDES_PATH', ROOT_PATH . '/includes');
+define('PAGES_PATH', ROOT_PATH . '/pages');
+define('ADMIN_PATH', ROOT_PATH . '/admin');
+define('ASSETS_PATH', ROOT_PATH . '/assets');
+
+// ============================================
+// DEPLOYMENT CONFIGURATION
+// ============================================
+
+define('DEPLOY_SECRET', 'dffd9303bbae3a2fd134c9585da9f53d8e2b46949ae455c57fe66da22a73145a');
+define('DEPLOY_ENABLED', true);
+define('DEPLOY_BRANCH', 'main');
+
+// ============================================
+// MAINTENANCE MODE
+// ============================================
+
+define('MAINTENANCE_MODE', false);
+define('MAINTENANCE_MESSAGE', 'Sistem sedang dalam pemeliharaan. Silakan coba lagi nanti.');
+define('MAINTENANCE_ALLOWED_IPS', [
+    '127.0.0.1',
+]);
