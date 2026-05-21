@@ -39,24 +39,6 @@ function getDbConnection() {
 }
 
 /**
- * Get authenticated user
- * Returns user data if logged in, null otherwise
- */
-function auth() {
-    if (isset($_SESSION['user_id'])) {
-        static $user = null;
-        
-        if ($user === null) {
-            $stmt = safeQuery("SELECT * FROM users WHERE id = ?", [$_SESSION['user_id']]);
-            $user = $stmt ? $stmt->fetch() : null;
-        }
-        
-        return $user;
-    }
-    return null;
-}
-
-/**
  * Generate UUID v4
  */
 function generateUuid(): string {
