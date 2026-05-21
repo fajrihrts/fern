@@ -40,7 +40,7 @@ include 'includes/header.php';
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
             <div style="color: white; z-index: 1;">
                 <h1 style="font-size: 3.5rem; margin-bottom: 24px; line-height: 1.1;">
-                    Bangun Karier Data & Statistik dari <span style="color: var(--primary);">Pengalaman Nyata</span> di BPS
+                    Bangkit Karier Data & Statistik dari <span style="color: var(--primary);">Pengalaman Nyata</span> di BPS
                 </h1>
                 <p style="font-size: 1.25rem; margin-bottom: 32px; color: #cbd5e1; font-weight: 500; line-height: 1.6;">
                     Bergabunglah dengan program magang di Badan Pusat Statistik Kabupaten Penajam Paser Utara dan dapatkan pengalaman langsung dalam pengolahan data statistik.
