@@ -21,7 +21,9 @@ $classFiles = [
     'ActivityLog',
     'RateLimiter',
     'ChartHelper',
-    'BulkAction'
+    'BulkAction',
+    'EmailService',
+    'PasswordReset'
 ];
 
 foreach ($classFiles as $class) {

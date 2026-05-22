@@ -163,11 +163,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <?php endif; ?>
                         </div>
                         
-                        <div class="nb-form-group">
+                        <div class="nb-form-group" style="display: flex; justify-content: space-between; align-items: center;">
                             <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-weight: 600;">
                                 <input type="checkbox" name="remember" style="width: 18px; height: 18px; cursor: pointer;">
                                 <span>Ingat saya</span>
                             </label>
+                            <a href="<?= APP_URL ?>/forgot-password" style="color: var(--primary); font-weight: 600; text-decoration: none; font-size: 14px;">
+                                Lupa Password?
+                            </a>
                         </div>
                         
                         <button type="submit" class="nb-btn nb-btn-primary" style="width: 100%; justify-content: center; margin-bottom: 16px;">

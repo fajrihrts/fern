@@ -4,8 +4,8 @@
 
 deployment:
   tasks:
-    # Copy files to public_html (adjust path as needed)
-    - export DEPLOYPATH=/home/username/public_html/
+    # Copy files to public_html (root directory)
+    - export DEPLOYPATH=/home/fajriharits/public_html
     
     # Create necessary directories if they don't exist
     - mkdir -p $DEPLOYPATH/logs
@@ -49,6 +49,9 @@ deployment:
     
     # Log deployment
     - echo "✅ Deployment completed at $(date)" >> $DEPLOYPATH/logs/deploy.log
+    
+    # Run database migration for password reset
+    - php $DEPLOYPATH/migrate-password-reset.php >> $DEPLOYPATH/logs/migration.log 2>&1 || echo "⚠️  Migration skipped or already exists"
     
     # Optional: Run cleanup script
     # - php $DEPLOYPATH/cleanup.php
