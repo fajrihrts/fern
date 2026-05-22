@@ -16,39 +16,6 @@ define('DB_PASS', 'Ijok.142123');
 define('DB_CHARSET', 'utf8mb4');
 define('DB_SOCKET', '');
 
-// Database Connection Function
-function getDbConnection() {
-    static $conn = null;
-    
-    if ($conn === null) {
-        try {
-            $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET;
-            
-            $conn = new PDO(
-                $dsn,
-                DB_USER,
-                DB_PASS,
-                [
-                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                    PDO::ATTR_EMULATE_PREPARES => false,
-                    PDO::ATTR_TIMEOUT => 5
-                ]
-            );
-        } catch (PDOException $e) {
-            error_log("Database Connection Error: " . $e->getMessage());
-            
-            if (APP_DEBUG) {
-                die("Database connection failed: " . $e->getMessage());
-            } else {
-                die("Database connection failed. Please contact administrator.");
-            }
-        }
-    }
-    
-    return $conn;
-}
-
 // ============================================
 // APPLICATION CONFIGURATION
 // ============================================
@@ -113,16 +80,12 @@ define('RATE_LIMIT_MAX_ATTEMPTS', 5);
 define('RATE_LIMIT_WINDOW', 900);
 
 // ============================================
-// EMAIL CONFIGURATION
+// EMAIL CONFIGURATION (Optional)
 // ============================================
 
-define('MAIL_ENABLED', true);
+define('MAIL_ENABLED', false);
 define('MAIL_FROM', 'noreply@fajriharits.my.id');
 define('MAIL_FROM_NAME', APP_NAME);
-define('CONTACT_EMAIL', 'bps6409@bps.go.id');
-define('CONTACT_PHONE', '(0542) 7211471');
-define('CONTACT_ADDRESS', 'Penajam Paser Utara, Kalimantan Timur');
-define('WEBSITE_URL', 'https://ppukab.bps.go.id/id');
 
 // ============================================
 // TIMEZONE

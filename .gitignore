@@ -56,22 +56,12 @@ yarn-error.log
 test-*.php
 !test-db-connection.php
 
-# Example files
-EXAMPLE-*.php
-ERROR-HANDLING-FLOW.txt
-
 # Documentation (optional - keep locally but don't commit)
 CHANGELOG-*.md
 DEPLOYMENT-CHECKLIST.md
 DEPLOYMENT-FILES.md
 DEPLOYMENT-GUIDE.md
-DEPLOYMENT-INFO.md
 NEXT-STEPS.md
 QUICK-DEPLOY.md
 SETUP-INSTRUCTIONS.md
 START-HERE.md
-INSTALL-*.md
-DEPLOY-*.md
-PASSWORD-RESET-*.md
-QUICK-START-*.md
-README-DEPLOY.md

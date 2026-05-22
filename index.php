@@ -83,12 +83,6 @@ try {
     elseif ($path === '/login') {
         require 'pages/login.php';
     }
-    elseif ($path === '/forgot-password') {
-        require 'pages/forgot-password.php';
-    }
-    elseif ($path === '/reset-password') {
-        require 'pages/reset-password.php';
-    }
     elseif ($path === '/logout' && $method === 'POST') {
         requireAuth();
         logout();

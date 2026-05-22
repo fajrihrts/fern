@@ -33,8 +33,8 @@ define('DEPLOY_ENABLED', true);
 
 // Commands to run after deployment
 define('POST_DEPLOY_COMMANDS', [
-    'php migrate-password-reset.php',
     // 'composer install --no-dev --optimize-autoloader',
+    // 'php artisan migrate --force',
     // 'php artisan cache:clear',
 ]);
 
